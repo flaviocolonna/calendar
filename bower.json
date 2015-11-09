@@ -1,0 +1,21 @@
+{
+  "name": "Calendar",
+  "homepage": "https://github.com/flaviocolonna/calendar",
+  "authors": [
+    "Flavio Colonna Romano"
+  ],
+  "description": "A calendar to book house viewing",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "calendar",
+    "mobile",
+    "movebubble",
+    "house"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
