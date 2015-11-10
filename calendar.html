@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row full-width" id="calendar-button">
+    <div class="col-xs-12">
+      <button class="btn btn-primary btn-block" ng-click="showSchedule=true" ng-show="!showSchedule">Schedule a viewing!</button>
+    </div>
+  </div>
+  <div id="scheduling" ng-class="showSchedule ? 'opened':''">
+    <div class="row">
+      <div class="col-xs-12">
+        <span class="glyphicon glyphicon-menu-down btn btn-block" ng-click="showSchedule=false" id="close"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 center">
+        <h4 class="bold">Pick times that suit you.</h4>
+        <h6>We'll talk to agent and book it in.</h6>
+      </div>
+    </div>
+    <div class="row dates">
+      <div class="col-xs-2 day-col center" ng-class="dateSelected===$index ? 'selected':'not-selected'" ng-repeat="day in days" ng-click="select($index)" id="{{$index}}">
+        <p class="weekday">{{weekday[day.getDay()-1]}}</p>
+        <p class="date">{{day.getDate()}}</p>
+        <p class="month">{{months[day.getMonth()]}}</p>
+      </div>
+    </div>
+    <div class="slots">
+      <div class="row">
+        <div class="col-xs-12 center">
+          <span class="btn btn-default btn-block slot">MORNING (08:00 - 12:00)</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 center">
+          <span class="btn btn-default btn-block slot">AFTERNOON (12:00 - 18:00)</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 center">
+          <span class="btn btn-default btn-block slot">EVENING (18:00 - 22:00)</span>
+        </div>
+      </div>
+    </div>
+    <div class="row full-width" id="schedule-button">
+      <div class="col-xs-12">
+        <button class="btn btn-default btn-block">{{canSchedule ? "Send "+slotsSelected+" timeslot/s" : "Select multiple slots"}}</button>
+      </div>
+    </div>
+  </div>
+</div>
