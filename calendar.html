@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row full-width" id="calendar-button" ng-show="!showSchedule">
+  <div class="row full-width" id="calendar-button-row" ng-show="!showSchedule">
     <div class="col-xs-12">
-      <button class="btn btn-primary btn-block" ng-click="showSchedule=true">Schedule a viewing!</button>
+      <button class="btn btn-primary btn-block" ng-click="showSchedule=true" id="calendar-button">Schedule a viewing!</button>
     </div>
   </div>
 
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row dates">
-      <div class="col-xs-2 day-col center" ng-class="dateSelected===$index ? 'day-selected':'day-not-selected'" ng-repeat="day in days" ng-click="select($index,day)" id="{{$index}}">
+      <div class="col-xs-2 day-col center" ng-class="dateSelected===$index ? 'day-selected':'day-not-selected'" ng-repeat="day in days" ng-click="select($index,day)" id="day-{{$index}}">
         <p class="weekday">{{weekday[day.getDay()-1]}}</p>
         <p class="date">{{day.getDate()}}</p>
         <p class="month">{{months[day.getMonth()]}}</p>
@@ -41,9 +41,9 @@
         </div>
       </div>
     </div>
-    <div class="row full-width" id="schedule-button">
+    <div class="row full-width" id="schedule-button-row">
       <div class="col-xs-12">
-        <button class="btn btn-default btn-block" ng-click="sendSchedule()" ng-class="(schedule.slots.length>0) ? 'btn-success':''">{{schedule.slots.length>0 ? "Send "+schedule.slots.length+" timeslot/s" : "Select multiple slots"}}</button>
+        <button class="btn btn-default btn-block" ng-click="sendSchedule()" id="schedule-button" ng-class="(schedule.slots.length>0) ? 'btn-success':''">{{schedule.slots.length>0 ? "Send "+schedule.slots.length+" timeslot/s" : "Select multiple slots"}}</button>
       </div>
     </div>
   </div>
