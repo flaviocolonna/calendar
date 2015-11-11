@@ -1,83 +1,92 @@
 @import "colors.less";
-#calendar-button,#schedule-button {
-  position: fixed;
-  bottom: 0;
-  padding-bottom: 1rem;
-  button {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 2rem;
-    padding: 1rem;
+@media only screen and(max-width:767px){
+  .btn-default:active, .btn-success:active:hover{
+    background-position: 0px;
   }
-}
-#scheduling{
-  transform: translate3d( 0, -700px, 0 ); /* X, Y, Z */
-  -webkit-transform: translate3d( 0, -700px, 0 );
-  -o-transform: translate3d( 0, -700px, 0 );
-  -moz-transform: translate3d( 0, -700px, 0 );
-  -ms-transform: translate3d( 0, -700px, 0 );
-  height: 100%;
-  transition: 1s ease all;
-  -webkit-transition: 1s ease all;
-  -moz-transition: 1s ease all;
-  -o-transition: 1s ease all;
-  -ms-transition: 1s ease all;
-  #close{
-    background-color: @black;
-    color: @white;
-  }
-  .dates{
-    padding: 0 1.7rem 0 1.7rem;
-  }
-  .day-col{
-    width: 20%;
-    p{
-      margin-bottom: 0;
-    }
-    .weekday{
+  #calendar-button,#schedule-button {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 1rem;
+    button {
+      font-family: 'Roboto Condensed', sans-serif;
       font-size: 2rem;
-    }
-    .date{
-      font-weight: bold;
-      font-size: 2.5rem;
+      padding: 1rem;
     }
   }
-  .day-col.selected::after{
-    position: relative;
-    margin: auto;
-    top: 1rem;
-    content: "";
-    display: block;
-    width: 2rem;
-    height: 2rem;
+  #scheduling{
+    transform: translate3d( 0, 1000px, 0 ); /* X, Y, Z */
+    -webkit-transform: translate3d( 0, 1000px, 0 );
+    -o-transform: translate3d( 0, 1000px, 0 );
+    -moz-transform: translate3d( 0, 1000px, 0 );
+    -ms-transform: translate3d( 0, 1000px, 0 );
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    padding-right: 3rem;
+    transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+    -ms-transition: 0.3s ease all;
+    #close{
+      background-color: @black;
+      color: @white;
+    }
+    .dates{
+      padding: 0 1.7rem 0 1.7rem;
+    }
+    .day-col{
+      width: 20%;
+      p{
+        margin-bottom: 0;
+      }
+      .weekday{
+        font-size: 2rem;
+      }
+      .date{
+        font-weight: bold;
+        font-size: 2.5rem;
+      }
+    }
+    .day-col.day-selected::after{
+      position: relative;
+      margin: auto;
+      top: 1rem;
+      content: "";
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      background-color: @boldBlue;
+      transform: rotate(133deg);
+    }
+    .slots{
+      margin-top: 3rem;
+      .slot{
+        padding: 2rem;
+      }
+    }
+  }
+  #scheduling.opened{
+      transform: translate3d( 0, 0, 0 ); /* X, Y, Z */
+      -webkit-transform: translate3d( 0, 0, 0 );
+      -o-transform: translate3d( 0, 0, 0 );
+      -moz-transform: translate3d( 0, 0, 0 );
+      -ms-transform: translate3d( 0, 0, 0 );
+  }
+  .center{
+    text-align: center;
+  }
+  .day-selected{
     background-color: @boldBlue;
-    transform: rotate(133deg);
   }
-  .slots{
-    margin-top: 3rem;
-    .slot{
-      padding: 2rem;
-    }
+  .day-not-selected{
+    background-color: @lightBlue;
   }
-}
-#scheduling.opened{
-    transform: translate3d( 0, 0, 0 ); /* X, Y, Z */
-    -webkit-transform: translate3d( 0, 0, 0 );
-    -o-transform: translate3d( 0, 0, 0 );
-    -moz-transform: translate3d( 0, 0, 0 );
-    -ms-transform: translate3d( 0, 0, 0 );
+  .full-width{
+    width: 100%;
   }
-.center{
-  text-align: center;
-}
-.selected{
-  background-color: @boldBlue;
-}
-.not-selected{
-  background-color: @lightBlue;
-}
-.full-width{
-  width: 100%;
-}
-.bold{
-  font-weight: bold;
+  .bold{
+    font-weight: bold;
+  }
+
 }

@@ -1,4 +1,4 @@
-describe("Module Test", function () {
+describe("Ang App Architecture Test", function () { //this test provide a check on the basic architecture of the angular app.
   // Arrange
   var module;
   var scope;
@@ -18,11 +18,5 @@ describe("Module Test", function () {
   });
   it('calendar module has schedule controller',function(){
     expect(controller).not.toBeNull();
-  });
-  it('calendar not opened first',function(){
-    expect(scope.showSchedule).toEqual(false);
-  });
-  it('days should be five',function(){
-    expect(scope.days.length).toEqual(5);
   });
 });

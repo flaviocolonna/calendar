@@ -1,9 +1,10 @@
 <div class="container">
-  <div class="row full-width" id="calendar-button">
+  <div class="row full-width" id="calendar-button" ng-show="!showSchedule">
     <div class="col-xs-12">
-      <button class="btn btn-primary btn-block" ng-click="showSchedule=true" ng-show="!showSchedule">Schedule a viewing!</button>
+      <button class="btn btn-primary btn-block" ng-click="showSchedule=true">Schedule a viewing!</button>
     </div>
   </div>
+
   <div id="scheduling" ng-class="showSchedule ? 'opened':''">
     <div class="row">
       <div class="col-xs-12">
@@ -17,7 +18,7 @@
       </div>
     </div>
     <div class="row dates">
-      <div class="col-xs-2 day-col center" ng-class="dateSelected===$index ? 'selected':'not-selected'" ng-repeat="day in days" ng-click="select($index)" id="{{$index}}">
+      <div class="col-xs-2 day-col center" ng-class="dateSelected===$index ? 'day-selected':'day-not-selected'" ng-repeat="day in days" ng-click="select($index,day)" id="{{$index}}">
         <p class="weekday">{{weekday[day.getDay()-1]}}</p>
         <p class="date">{{day.getDate()}}</p>
         <p class="month">{{months[day.getMonth()]}}</p>
@@ -26,23 +27,23 @@
     <div class="slots">
       <div class="row">
         <div class="col-xs-12 center">
-          <span class="btn btn-default btn-block slot">MORNING (08:00 - 12:00)</span>
+          <span class="btn btn-default btn-block slot" ng-click="selectSlot(0)" ng-class="schedule.slots.indexOf(0)>=0 ? 'btn-success':''" id="slot-0" ng-disabled="shouldDisabled(0)">MORNING (08:00 - 12:00)</span>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 center">
-          <span class="btn btn-default btn-block slot">AFTERNOON (12:00 - 18:00)</span>
+          <span class="btn btn-default btn-block slot" ng-click="selectSlot(1)" ng-class="schedule.slots.indexOf(1)>=0 ? 'btn-success':''"  id="slot-1" ng-disabled="shouldDisabled(1)">AFTERNOON (12:00 - 18:00)</span>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 center">
-          <span class="btn btn-default btn-block slot">EVENING (18:00 - 22:00)</span>
+          <span class="btn btn-default btn-block slot" ng-click="selectSlot(2)" ng-class="schedule.slots.indexOf(2)>=0 ? 'btn-success':''"  id="slot-2" ng-disabled="shouldDisabled(2)">EVENING (18:00 - 22:00)</span>
         </div>
       </div>
     </div>
     <div class="row full-width" id="schedule-button">
       <div class="col-xs-12">
-        <button class="btn btn-default btn-block">{{canSchedule ? "Send "+slotsSelected+" timeslot/s" : "Select multiple slots"}}</button>
+        <button class="btn btn-default btn-block" ng-click="sendSchedule()" ng-class="(schedule.slots.length>0) ? 'btn-success':''">{{schedule.slots.length>0 ? "Send "+schedule.slots.length+" timeslot/s" : "Select multiple slots"}}</button>
       </div>
     </div>
   </div>
