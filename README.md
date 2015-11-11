@@ -6,11 +6,12 @@ Then you can just add the calendar component in your page like <calendar></calen
 Remember that your index file should import some important file to make the component usable. Read the index.html to past and copy that you need.
 To check if any part of the architecture works and every part of the ui works I made some tests.
 The Unit Testing is done using Karma. In the folder test/unitTesting you can find two files.
-The file firstTest.js will check if the angular app has a module, a controller and a directive.
+The file firstTest.js will check if the angular app has a module and a controller.
 The file secondTest.js will check if the angular app has all the data needed by the component.
 While the e2e tests are built with Protractor. They can be found in the test/e2e folder.
 There is only one main file uitest.js .
-There many test like if the calendar is closed at the start of the page and then if is opened when the user click on the calendar button opener.
+It will check first of all if the calendar component is available.
+After there are many test like if the calendar is closed at the start of the page and then if it is opened when the user click on the calendar button opener. 
 Then the test will check if selecting a day and a slot, you can schedule the viewing or if you change the day, the slot disappear and you cannot schedule the viewing anymore.
 Finally it will check if every element switch own class when selected or not and if you can close the calendar.
 ##Version

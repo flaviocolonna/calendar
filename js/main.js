@@ -75,11 +75,11 @@ app.controller("ScheduleCtrl",function($scope){
 
   $scope.sendSchedule = function(){
     if($scope.schedule.slots.length>0){
-      swal("Perfect!", "You have scheduled the viewing!", "success");
+    //  swal("Perfect!", "You have scheduled the viewing!", "success");
       console.log($scope.schedule);
       return true;
     }else{
-      swal("Error!", "You have to choose at least one slot!", "error");
+    //  swal("Error!", "You have to choose at least one slot!", "error");
       return false;
     }
   }
